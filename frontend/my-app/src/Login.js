@@ -7,7 +7,7 @@ import DropDownMenu from "material-ui/DropDownMenu";
 import axios from "axios";
 import UploadPage from "./UploadPage";
 import MenuItem from "material-ui/MenuItem";
-var apiBaseUrl = "http://localhost:4000/";
+var apiBaseUrl = "http://localhost:3000/";
 
 class Login extends Component {
     constructor(props) {
@@ -137,11 +137,11 @@ class Login extends Component {
             role: this.state.loginRole,
         };
         axios
-            .post(apiBaseUrl + "api", payload)
+            .post(apiBaseUrl + "/signup", payload)
             .then(function (response) {
                 console.log(response);
                 if (response.data.code === 200) {
-                    console.log("Login successfull");
+                    console.log("Signup successfull");
                     var uploadScreen = [];
                     uploadScreen.push(
                         <UploadPage
